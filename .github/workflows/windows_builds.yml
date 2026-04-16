@@ -4,11 +4,15 @@ on:
   workflow_dispatch:
 
 # Global Settings
+# betsy_export_templates=yes IS BDCC2 EDIT
+# cvtt_export_templates=yes IS BDCC2 EDIT
 env:
   SCONS_FLAGS: >-
     dev_mode=yes
     module_text_server_fb_enabled=yes
     debug_symbols=no
+    betsy_export_templates=yes
+    cvtt_export_templates=yes
   SCONS_CACHE_MSVC_CONFIG: true
   PYTHONIOENCODING: utf8
 
