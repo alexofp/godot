@@ -15,6 +15,7 @@ env:
     cvtt_export_templates=yes
   SCONS_CACHE_MSVC_CONFIG: true
   PYTHONIOENCODING: utf8
+  GODOT_VERSION_STATUS: bdcc2
 
 jobs:
   build-windows:
