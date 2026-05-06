@@ -9,10 +9,14 @@ on:
   workflow_dispatch:
 
 # Global Settings
+# betsy_export_templates=yes IS BDCC2 EDIT
+# cvtt_export_templates=yes IS BDCC2 EDIT
 env:
   SCONS_FLAGS: >-
     dev_mode=yes
     module_text_server_fb_enabled=yes
+    betsy_export_templates=yes
+    cvtt_export_templates=yes
   GODOT_CPP_BRANCH: 4.5
   DOTNET_NOLOGO: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
@@ -20,6 +24,7 @@ env:
   LSAN_OPTIONS: color=always:print_suppressions=1:suppressions=${{ github.workspace }}/misc/error_suppressions/lsan.txt
   TSAN_OPTIONS: color=always:print_suppressions=1:suppressions=${{ github.workspace }}/misc/error_suppressions/tsan.txt
   UBSAN_OPTIONS: color=always:print_suppressions=1:suppressions=${{ github.workspace }}/misc/error_suppressions/ubsan.txt
+  GODOT_VERSION_STATUS: bdcc2
 
 jobs:
   build-linux:
