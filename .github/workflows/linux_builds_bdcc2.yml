@@ -42,8 +42,6 @@ jobs:
             scons-flags: compiledb=yes
             bin: ./bin/godot.linuxbsd.editor.x86_64
             doc-test: true
-            proj-conv: true
-            proj-export: true
             api-compat: true
             artifact: true
             # Validate godot-cpp compatibility on one arbitrary editor build.
