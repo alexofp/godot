@@ -10,10 +10,14 @@ on:
         description: "Build Windows"
         type: boolean
         default: true
+      build_linux_bdcc2:
+        description: "Build Linux (bdcc2)"
+        type: boolean
+        default: true
       build_linux:
         description: "Build Linux"
         type: boolean
-        default: true
+        default: false
       build_macos:
         description: "Build macOS"
         type: boolean
@@ -70,8 +74,18 @@ jobs:
     needs: static-checks
     if: |
       (github.event_name == 'workflow_dispatch' && inputs.build_linux) ||
-      (github.event_name != 'workflow_dispatch')
+      (github.event_name != 'workflow_dispatch' && false)
     uses: ./.github/workflows/linux_builds.yml
+    with:
+      changed-files: ${{ needs.static-checks.outputs.changed-files }}
+
+  linux-build-bdcc2:
+    name: 🐧 Linux (bdcc2)
+    needs: static-checks
+    if: |
+      (github.event_name == 'workflow_dispatch' && inputs.build_linux_bdcc2) ||
+      (github.event_name != 'workflow_dispatch')
+    uses: ./.github/workflows/linux_builds_bdcc2.yml
     with:
       changed-files: ${{ needs.static-checks.outputs.changed-files }}
 
